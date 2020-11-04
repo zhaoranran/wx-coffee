@@ -1,0 +1,43 @@
+<view class="order">
+  <view 
+  class="order-item" 
+  wx:for="{{orderList}}" 
+  wx:for-index="idx"
+  wx:key="idx"
+   wx:for-item="orderOjb">
+    <view class="order-title">
+      <text>{{orderOjb.id}}</text>
+      <text>已完成</text>
+    </view>
+    <view class="product-box">
+      <view 
+      class="product-item" 
+      wx:for="{{orderOjb.productList}}" 
+      wx:for-index="index"
+      wx:key="index"
+      wx:for-item="product">
+        <view class="product-fl">
+          <view class="product-img">
+            <image class="auto-image" mode="widthFix" src="{{product.small_img}}"></image>
+          </view>
+          <view class="product-name box-flex">
+            <text class="ch-name">{{product.name}}</text>
+            <text class="pro-rule">{{product.rule}}</text>
+          </view>
+        </view>
+        <view class="product-fr box-flex">
+          <view class="pro-price">￥{{product.price}}</view>
+          <view class="pro-count">x{{product.count}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="order-sum">
+      <view class="order-time">{{orderOjb.createDate}}</view>
+      <view class="order-box">
+        <text class="order-count">共 {{orderOjb.count}} 件商品 合计：</text>
+        <text class="order-price">￥{{orderOjb.price}}</text>
+      </view>
+    </view>
+  </view>
+
+</view>

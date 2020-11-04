@@ -1,0 +1,56 @@
+<view class="commit">
+  <view class="commit-box"></view>
+  <view class="receive" bindtap="showAddress">{{address}}</view>
+  <view class="pro-list">
+    <view class="product-item" wx:for="{{shopcartList}}" wx:key="index">
+      <view class="product-fl">
+        <view class="product-img">
+          <image class="auto-image" mode="widthFix" src="{{item.small_img}}"></image>
+        </view>
+        <view class="product-name box-flex">
+          <text class="ch-name">{{item.name}}</text>
+          <text class="pro-rule">{{item.rule}}</text>
+        </view>
+      </view>
+      <view class="product-fr box-flex">
+        <view class="pro-price">￥{{item.price}}</view>
+        <view class="pro-count">x{{item.count}}</view>
+      </view>
+    </view>
+    <view class="pro-sum">
+      <text class="count">共 {{allCount}} 件商品 合计： </text>
+      <text class="price">￥{{allPrice}}</text>
+    </view>
+  </view>
+  <!-- 地址列表 -->
+  <view class="address-list" hidden="{{!isShowAddress}}"  bindtap="showAddress">
+    <view class="list-box">
+      <view class="list">
+        <view 
+        class="address-item" 
+        wx:for="{{addressList}}" 
+        wx:key="index"
+        data-index="{{index}}"
+        bindtap="selectAddressTap">
+          <view class="address-info">
+            <view class="person-name text-overflow">{{item.userName}}</view>
+            <view class="person-phone">{{item.phone}}</view>
+            <view class="tag default" wx:if="{{item.default}}">默认</view>
+            <view class="tag">{{item.tag}}</view>
+          </view>
+          <view class="person-address">
+            <view class="detail-address text-overflow">{{item.address}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="new-btn" bindtap="addAddress">新增地址</view>
+    </view>
+  </view>
+  <view class="pay-box">
+    <view class="">
+      <text class="text1">应付合计：</text>
+      <text class="text2">￥{{allPrice}}</text>
+    </view>
+    <view class="pay-btn" bindtap="commit">立即结算</view>
+  </view>
+</view>

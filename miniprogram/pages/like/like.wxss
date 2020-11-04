@@ -1,0 +1,33 @@
+.like{
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  flex-wrap:wrap;
+}
+.like-item{
+  width:calc(50% - 50rpx);
+  background-color: #fff;
+  margin-right: 10rpx;
+  padding:20rpx;
+  margin-bottom:20rpx;
+  border-radius: 20rpx;
+}
+.pro-name{
+  padding:20rpx 0;
+  font-size: 28rpx;
+  color:#444;
+}
+.price-box{
+  display: flex;
+  justify-content: space-between;
+}
+.price{
+  font-size: 28rpx;
+  color:#165dad;
+  line-height: 48rpx;
+}
+.delete-icon{
+  width: 48rpx;
+  height: 48rpx;
+  background-color: #eee;
+}

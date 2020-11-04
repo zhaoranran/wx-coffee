@@ -1,0 +1,30 @@
+.person{
+  background-color: #fff;
+}
+.person-item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 120rpx;
+  padding:0 20rpx;
+  line-height: 120rpx;
+  font-size: 28rpx;
+  border-bottom:1px solid #e8e8e8;
+}
+.avatar{
+  columns: #6a6a6a;
+}
+.avatar-img{
+  width: 80rpx;
+  height: 80rpx;
+  background-color: #ddd;
+}
+.text{
+  color:#444;
+  font-size: 28rpx;
+  line-height: 120rpx;
+}
+.icon{
+  width: 28rpx;
+  height: 28rpx;
+}

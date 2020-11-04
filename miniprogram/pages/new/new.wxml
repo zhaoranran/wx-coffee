@@ -1,0 +1,90 @@
+
+ <view class="new">
+    <!-- <form bindsubmit="submitForm"> -->
+      <view class="new-box">
+        <view class="new-item">
+          <view class="text">联系人</view>
+          <view class="ipt">
+            <input 
+            class="weui-input" 
+            bindchange="formChange" 
+            placeholder="您的称呼" 
+            value="{{addressData.userName}}"
+            data-name="userName"
+            />
+          </view>
+        </view>
+        <view class="new-item">
+          <view class="text">性别</view>
+          <view 
+          class="ipt" 
+          wx:for="{{sexList}}" 
+          wx:key="index" 
+          data-isSelect="{{item.isSelect}}"
+          data-index="{{index}}"
+          bindtap="sexChecked">
+            <view class="radio">
+              <image class="auto-image" mode="widthFix" hidden="{{!item.isSelect}}" src="../../images/check.png"></image>
+            </view>
+            <view class="radio-text">{{item.title}}</view>
+          </view>
+        </view>
+        <view class="new-item">
+          <view class="text">手机号</view>
+          <view class="ipt">
+            <input 
+            class="weui-input" 
+            placeholder="请您输入手机号"  
+            bindchange="formChange" 
+            value="{{addressData.phone}}"
+            data-name="phone"/>
+          </view>
+        </view>
+        <view class="new-item">
+          <view class="text">地址</view>
+          <view class="ipt">
+            <picker class="pick-box" mode="region" bindchange="formChange" data-name="address">
+            <view class="picker">
+              {{addressData.address}}
+            </view>
+          </picker>
+          </view>
+        </view>
+        <view class="new-item">
+          <view class="text">门牌号</view>
+          <view class="ipt">
+            <input 
+            class="weui-input" 
+            placeholder="如：5楼502房"  
+            bindchange="formChange" 
+            value="{{addressData.houseNum}}"
+            data-name="houseNum"/>
+          </view>
+        </view>
+        <view class="new-item">
+          <view class="text">标签</view>
+          <view class="ipt">
+            <view 
+            class="tag {{item.isSelect?'active':''}}" 
+            wx:for="{{tagList}}" 
+            data-isSelect="{{item.isSelect}}"
+            data-index="{{index}}"
+            wx:key="index"
+            bindtap="tagChecked"
+            >{{item.title}}</view>
+          </view>
+        </view>
+        <view class="new-item" data-is-select="{{addressData.default}}" bindtap="defaultTap">
+          <view class="check-box">
+            <image class="auto-image" mode="widthFix" hidden="{{!addressData.default}}" src="../../images/check.png"></image>
+          </view>
+          <view class="ipt default-text">
+            设为默认地址
+          </view>
+        </view>
+        <view class="save" bindtap="submitForm">保存</view>
+      </view>
+    <!-- </form> -->
+  </view>
+
+

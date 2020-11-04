@@ -1,0 +1,76 @@
+<view class="shopcart">
+  <!-- 头部 -->
+  <view class="shopcart-header" wx:if="{{shopcartList.length>0}}">
+    <view class="manage" bindtap="manageTap">{{isManage ? '完成' : '管理'}}</view>
+  </view>
+  <!-- 商品列表 -->
+  <view  class="pro-items" wx:if="{{shopcartList.length>0}}">
+    <view class="pro-item" wx:for="{{shopcartList}}" wx:key="index">
+      <view class="pro-fl">
+        <view class="checkbox" 
+        data-is-select="{{item.isSelect}}"
+        data-index="{{index}}"
+        bindtap="toggleChecked">
+          <image 
+          mode="widthFix" 
+          class="auto-image icon-img" 
+          hidden="{{!item.isSelect}}" 
+          src="../../images/check.png"
+          ></image>
+        </view>
+        <view class="pro-img">
+          <image class="auto-image" mode="widthFix" src="{{item.small_img}}"></image>
+        </view>
+        <view class="pro-text">
+          <view class="pro-name">{{item.name}}</view>
+          <view class="pro-rule">{{item.rule}}</view>
+        </view>
+      </view>
+      <view class="price-count-box" wx:if="{{!isManage}}">
+        <view class="price-count">
+          <view class="price">￥{{item.price}}</view>
+          <view class="icon" 
+            data-index="{{index}}"
+            data-id="{{item._id}}"
+            bindtap="reduceTap">
+            <image class="auto-image icon-img" mode="widthFix" src="../../images/reduce.png"></image>
+          </view>
+          <view class="count">{{item.count}}</view>
+          <view class="icon"
+            data-index="{{index}}"
+            data-id="{{item._id}}"
+            bindtap="addTap">
+            <image class="auto-image icon-img" mode="widthFix" src="../../images/add.png"></image>
+          </view>
+        </view>
+      </view>
+      <view 
+      class="delete" wx:else 
+      data-index="{{index}}"
+      data-id="{{item._id}}"
+      bindtap="removeOneProduct">
+        <image mode="widthFix" class="auto-image icon-img" src="../../images/delete.png"></image>
+      </view>
+    </view>
+    
+  </view>
+  <view class="no-data" wx:else>暂时没有商品，快去选商品吧！</view>
+  <!-- 去结算 -->
+  <view class=" bottom-box" wx:if="{{shopcartList.length>0}}">
+    <view class="bottom-fl">
+      <view class="all-check" bindtap="toggleAll">
+        <image mode="widthFix" class="auto-image icon-img" hidden="{{!isAllSelect}}" src="../../images/check.png"></image>
+      </view>
+      <view class="all-text">全选</view>
+      <view></view>
+    </view>
+    <view class="bottom-fr" wx:if="{{!isManage}}">
+      <view class="text">应付合计：</view>
+      <view class="text-price">￥{{ total}}</view>
+      <view class="buy-btn" bindtap="pay">去结算</view>
+    </view>
+    <view class="all-delete" wx:else bindtap="removeSelectProduct">
+      全部删除
+    </view>
+  </view>
+</view>

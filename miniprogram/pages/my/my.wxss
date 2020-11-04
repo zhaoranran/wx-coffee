@@ -1,0 +1,60 @@
+.my-bg{
+  position: relative;
+}
+.my-bg .my-bg-img{
+  height: 326.086rpx;
+}
+.my-box{
+  position: absolute;
+  left: 0;
+  top:0;
+  bottom:0;
+  margin:auto 0 ;
+  height: 160rpx;
+  width: calc(100%);
+  padding:40rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.avatar{
+  width: 160rpx;
+  height: 160rpx;
+  /* background-color: #888; */
+  border-radius: 50%;
+}
+.avatar image{
+  border-radius: 50%;
+}
+.nickname{
+  line-break: 160rpx;
+  margin-left: 40rpx;
+  font-size: 32rpx;
+  color:#fff;
+}
+.my-list{
+  /* display: flex; */
+  
+}
+.my-list-item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  height: 120rpx;
+  line-height: 120rpx;
+  padding:0 20rpx;
+  border-bottom: 1px solid #e8e8e8;
+}
+.my-list-item:last-child{
+  
+}
+.text{
+  line-height: 120rpx;
+  font-size: 28rpx;
+  color:#444;
+}
+.arrow{
+  width: 32rpx;
+  height: 32rpx;
+}

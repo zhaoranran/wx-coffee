@@ -1,0 +1,19 @@
+<view class="like">
+  <view class="like-item" wx:for="{{likeList}}" wx:key="index">
+    <view class="">
+      <image mode="widthFix" class="auto-image" src="{{item.large_img}}"></image>
+    </view>
+    <view class="pro-name">{{item.name}}</view>
+    <view class="price-box">
+      <view class="price">￥{{item.price}}</view>
+      <view 
+      class="delete-icon" 
+      data-id="{{item._id}}"
+      data-index="{{index}}"
+      bindtap="deleteProduct" 
+      >
+        <image mode="widthFix" class="auto-image" src="../../images/delete.png"></image>
+      </view>
+    </view>
+  </view>
+</view>

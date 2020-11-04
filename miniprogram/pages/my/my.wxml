@@ -1,0 +1,25 @@
+<view class="my">
+  <view class="my-bg">
+    <image mode="widthFix" class="auto-image my-bg-img" src="cloud://text-9gduojj2cd7b4a29.7465-text-9gduojj2cd7b4a29-1303829965/banner/bga1.jpg"></image>
+    <view class="my-box">
+      <view class="avatar">
+        <image mode="widthFix" class="auto-image" hidden="{{!userInfo.avatarUrl}}" src="{{userInfo.avatarUrl}}"></image>
+      </view>
+      <view class="nickname">{{userInfo.nickName}}</view>
+    </view>
+  </view>
+  <view clas="my-list">
+    <view class="my-list-item" bindtap="goLikeTap">
+      <view class="text">我的收藏</view>
+      <view class="arrow">
+        <image class="auto-image" mode="widthFix" src="../../images/right-arrow.png"></image>
+      </view>
+    </view>
+    <view class="my-list-item"  bindtap="goPerson">
+      <view class="text">个人资料</view>
+      <view class="arrow">
+        <image class="auto-image" mode="widthFix" src="../../images/right-arrow.png"></image>
+      </view>
+    </view>
+  </view>
+</view>

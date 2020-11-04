@@ -1,0 +1,31 @@
+<view class="address">
+  <view class="address-items">
+    <view class="address-item" wx:for="{{addressList}}" wx:key="index">
+      <view class="address-info">
+        <view class="person-name text-overflow">{{item.userName}}</view>
+        <view class="person-phone">{{item.phone}}</view>
+        <view class="tag default" wx:if="{{item.default}}">默认</view>
+        <view class="tag">{{item.tag}}</view>
+      </view>
+      <view class="person-address">
+        <view class="detail-address text-overflow">{{item.address}}{{item.houseNum}}</view>
+        <view class="icon-btn">
+          <view
+           class="icon"
+            data-id="{{item._id}}"
+            bindtap="updateAddress">
+            <image class="auto-image" mode="widthFix" src="../../images/edit.png"></image>
+          </view>
+          <view 
+          class="icon" 
+          data-id="{{item._id}}" 
+          data-index="{{index}}" 
+          bindtap="deleAddressTap">
+            <image class="auto-image" mode="widthFix" src="../../images/delete.png"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="new" bindtap="addAddress">新增地址</view>
+</view>

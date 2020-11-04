@@ -1,0 +1,26 @@
+<view class="person">
+  <view class="person-item">
+    <view class="text">
+      <view class="avatar">头像</view>
+    </view>
+    <view class="avatar-img">
+      <image mode="widthFix" class="auto-image" hidden="{{!userInfo.avatarUrl}}" src="{{userInfo.avatarUrl}}"></image>
+    </view>
+  </view>
+  <view class="person-item">
+    <view class="avatar">用户名</view>
+    <view class="text">{{userInfo.nickName}}</view>
+  </view>
+  <view class="person-item">
+    <view class="avatar">性别</view>
+    <view class="text" wx:if="{{userInfo.gender == 0}}">未知</view>
+    <view class="text" wx:if="{{userInfo.gender == 1}}">男</view>
+    <view class="text" wx:if="{{userInfo.gender == 2}}">女</view>
+  </view>
+  <view class="person-item" bindtap="goAddress">
+    <view class="avatar">收货地址</view>
+    <view class="icon">
+      <image class="auto-image" mode="widthFix" src="../../images/right-arrow.png"></image>
+    </view>
+  </view>
+</view>

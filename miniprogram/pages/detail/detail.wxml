@@ -1,0 +1,67 @@
+<view class="detail">
+  <view class="detail-img">
+    <image class="auto-image" src="{{detailData.large_img}}" mode="widthFix"></image>
+  </view>
+  <view class="detail-box">
+    <!-- 商品名称 -->
+    <view class="pro">
+      <text class="pro-name">{{detailData.name}}</text>
+      <view class="pro-like" catchtap="likeProduct" data-id="{{detailData._id}}">
+        <image class="auto-image" src="../../images/{{isLike ? 'like_active':'like' }}.png" mode="widthFix"></image>
+      </view>
+    </view>
+    <!-- 商品标签 -->
+    <view class="pro-rule">
+      <view 
+      class="pro-rule-item" 
+      wx:for="{{ruleList}}" 
+      wx:key="ruleInd" 
+      wx:for-item="ruleItem" 
+      wx:for-index="ruleInd"
+      >
+        <text class="pro-rule-title">{{ruleItem.name}}</text>
+        <view class="rule-value">
+          <view 
+            class="rule-item {{valueItem.isSelect?'active':''}}" 
+            wx:for="{{ruleItem.value}}" 
+            wx:key="valueInd"
+            wx:for-item="valueItem" 
+            wx:for-index="valueInd"
+            data-isSelect="{{valueItem.isSelect}}"
+            data-type="{{ruleItem.type}}"
+            data-index="{{valueInd}}"
+            bindtap="ruleTab">
+            {{valueItem.v}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 商品描述 -->
+    <view class="desc">
+      <view class="desc-title">
+        商品描述
+      </view>
+      <view>
+        <view class="desc-text" wx:for="{{descList}}" wx:key="index">{{item}}</view>
+      </view>
+    </view>
+    <!-- 商品价格及数量 -->
+    <view class="price-count">
+      <view class="price">￥{{price}}</view>
+      <view class="operate">
+        <view class="price-img" bindtap="reduceTap">
+          <image mode="widthFix" class="auto-image" src="../../images/reduce.png"></image>
+        </view>
+        <view class="count">{{count}}</view>
+        <view class="price-img" bindtap="addTap">
+          <image mode="widthFix" class="auto-image" src="../../images/add.png"></image>
+        </view>
+      </view>
+    </view>
+    <!-- 购买按钮 -->
+    <view class="buy-btn">
+      <view class="shopcart" bindtap="addShopCartTap">加入购物车</view>
+      <view class="buy" bindtap="buy">立即购买</view>
+    </view>
+  </view>
+</view>
